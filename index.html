@@ -77,7 +77,7 @@
         
         <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pt-12 lg:grid-cols-2 lg:items-center">
             <div>
-                <!-- Badge Stato Live Dinamico (Modifica qui il bordo e lo sfondo se vuoi) -->
+                <!-- Badge Stato Live Dinamico -->
                 <div id="live-badge" class="mb-6 inline-flex items-center gap-2 px-3 py-1.5 border transition-colors">
                     <span id="live-dot" class="h-2 w-2 rounded-full"></span>
                     <span id="live-text" class="font-mono text-[11px] uppercase tracking-widest"></span>
@@ -202,17 +202,13 @@
     <footer id="contatti" class="border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-500 font-mono">
         <div class="mx-auto max-w-6xl px-5">
             <p class="mb-4 uppercase tracking-widest text-zinc-400">Misticko-968 &copy; 2026 — Tutti i diritti riservati</p>
-            <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:borzisalvo50@gmail.com" class="text-[#FF5500] hover:underline">borzisalvo50@gmail.com</a></p>
+            <!-- Email aggiornata -->
+            <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:misticko968181208@gmail.com" class="text-[#FF5500] hover:underline">misticko968181208@gmail.com</a></p>
         </div>
     </footer>
 
     <!-- Script interattività -->
     <script>
-        // ==========================================================
-        // IMPOSTA QUI IL TUO STATO:
-        // Scrivi `true` se sei ONLINE (Verde)
-        // Scrivi `false` se sei OFFLINE (Rosso)
-        // ==========================================================
         const isLive = false; 
 
         const badge = document.getElementById('live-badge');
@@ -235,13 +231,11 @@
             text.innerText = "Offline - Torno presto";
         }
 
-        // Orologio in tempo reale
         setInterval(() => {
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString('it-IT');
         }, 1000);
 
-        // Gestione telecamere CCTV
         function changeCam(id, name, imgFile, evt) {
             document.getElementById('cam-label').innerText = `CAM ${id} — ${name}`;
             document.getElementById('cctv-img').src = imgFile;
