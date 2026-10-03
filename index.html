@@ -1,343 +1,40 @@
-<!DOCTYPE html>
-<html lang="it" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Misticko-968 — FNaF Content Creator & Streamer</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        fnafOrange: '#FF5500',
-                        fnafDark: '#070709',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Courier New', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .scanlines {
-            background: linear-gradient(
-                rgba(18, 16, 16, 0) 50%, 
-                rgba(0, 0, 0, 0.25) 50%
-            ), linear-gradient(
-                90deg,
-                rgba(255, 0, 0, 0.03),
-                rgba(0, 255, 0, 0.01),
-                rgba(0, 0, 255, 0.03)
-            );
-            background-size: 100% 3px, 6px 100%;
-        }
-        .neon-glow {
-            text-shadow: 0 0 12px rgba(255, 85, 0, 0.7);
-        }
-        .neon-border {
-            box-shadow: 0 0 15px rgba(255, 85, 0, 0.2);
-        }
-    </style>
-</head>
-<body class="bg-[#070709] text-white font-sans selection:bg-[#FF5500] selection:text-black">
-
-    <!-- Scanlines Overlay -->
-    <div class="scanlines pointer-events-none fixed inset-0 z-50 opacity-65"></div>
-
-    <!-- Header / Navbar -->
-    <header class="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black/80 backdrop-blur-md">
-        <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-            <a href="#top" class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo Misticko-968" class="h-9 w-9 rounded-lg border border-[#FF5500]/40 object-cover">
-                <span class="text-xl font-black uppercase tracking-widest text-white">
-                    Misticko<span class="text-[#FF5500]">-968</span>
-                </span>
-                <span class="hidden text-[10px] font-mono uppercase tracking-widest text-amber-500/80 sm:inline">
-                    [CAM 01]
-                </span>
-            </a>
-            <div class="hidden items-center gap-7 md:flex">
-                <a href="#socials" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Social Hub</a>
-                <a href="#orari" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Orari Live</a>
-                <a href="#ultimi-video" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Ultimi Video</a>
-                <a href="#chi-sono" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Chi Sono</a>
-                <a href="#contatti" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Contatti</a>
-            </div>
-            <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="border border-[#FF5500]/60 bg-[#FF5500]/10 px-4 py-2 font-mono text-xs uppercase tracking-widest text-[#FF5500] hover:bg-[#FF5500] hover:text-black transition-all">
-                Iscriviti
-            </a>
-        </nav>
-    </header>
-
-    <!-- Hero Section & Monitor CCTV -->
-    <section id="top" class="relative overflow-hidden pt-28 pb-20">
-        <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,85,0,0.12),transparent_55%)]"></div>
-        
-        <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pt-12 lg:grid-cols-2 lg:items-center">
-            <div>
-                <!-- Badge Stato Live Dinamico -->
-                <div id="live-badge" class="mb-6 inline-flex items-center gap-2 px-3 py-1.5 border transition-colors">
-                    <span id="live-dot" class="h-2 w-2 rounded-full"></span>
-                    <span id="live-text" class="font-mono text-[11px] uppercase tracking-widest"></span>
-                </div>
-                
-                <h1 class="text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
-                    <span class="block text-white">Sopravvivi</span>
-                    <span class="block text-[#FF5500] neon-glow my-1">alla notte</span>
-                    <span class="block text-zinc-500 text-3xl sm:text-4xl mt-2 tracking-wider">Misticko-968</span>
-                </h1>
-
-                <p class="mt-6 max-w-md text-sm leading-relaxed text-zinc-400 sm:text-base">
-                    Gameplay estremo di Five Nights at Freddy&apos;s. Ogni notte una nuova sfida, ogni video una notte da sopravvivere fino alle 6 del mattino.
-                </p>
-
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="#socials" class="bg-[#FF5500] px-6 py-3 font-mono text-xs uppercase tracking-widest text-black font-bold hover:bg-[#FF9900] transition-colors">
-                        Esplora i social
-                    </a>
-                </div>
-            </div>
-
-            <!-- Monitor CCTV Interattivo -->
-            <div>
-                <div class="neon-border relative overflow-hidden border border-[#FF5500]/40 bg-black rounded-lg">
-                    <div class="flex items-center justify-between border-b border-white/10 bg-[#0F0F14] px-4 py-2.5">
-                        <span id="cam-label" class="font-mono text-[11px] uppercase tracking-widest text-amber-500 font-bold">
-                            CAM 01 — Main Stage
-                        </span>
-                        <span class="font-mono text-[11px] uppercase tracking-widest text-zinc-400 flex items-center gap-2">
-                            <span class="h-1.5 w-1.5 rounded-full bg-[#FF2200] animate-ping"></span> REC <span id="clock">12:00:00</span>
-                        </span>
-                    </div>
-                    
-                    <div class="relative aspect-[4/3] bg-zinc-950 flex items-center justify-center overflow-hidden">
-                        <img id="cctv-img" src="cam1.jpg" alt="CCTV Feed" class="absolute inset-0 h-full w-full object-cover opacity-85 transition-opacity duration-300">
-                        
-                        <div class="pointer-events-none absolute left-3 top-3 h-5 w-5 border-l-2 border-t-2 border-[#FF5500]/70 z-10"></div>
-                        <div class="pointer-events-none absolute right-3 top-3 h-5 w-5 border-r-2 border-t-2 border-[#FF5500]/70 z-10"></div>
-                        <div class="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b-2 border-l-2 border-[#FF5500]/70 z-10"></div>
-                        <div class="pointer-events-none absolute bottom-3 right-3 h-5 w-5 border-b-2 border-r-2 border-[#FF5500]/70 z-10"></div>
-                    </div>
-                </div>
-
-                <!-- Pulsanti Cam -->
-                <div class="mt-4 grid grid-cols-4 gap-2 font-mono">
-                    <button onclick="changeCam('01', 'Main Stage', 'cam1.jpg', event)" class="cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 01</button>
-                    <button onclick="changeCam('02', 'Security Desk', 'cam2.jpeg', event)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 02</button>
-                    <button onclick="changeCam('03', 'Parts & Service', 'cam3.jpg', event)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 03</button>
-                    <button onclick="changeCam('04', 'Dark Corner', 'cam4.png', event)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 04</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Hub -->
-    <section id="socials" class="py-24 border-t border-white/10 bg-black/40">
-        <div class="mx-auto max-w-6xl px-5">
-            <div class="mb-12">
-                <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// SOCIAL NETWORK</span>
-                <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Canali Ufficiali</h2>
-            </div>
-
-            <div class="grid gap-6 md:grid-cols-3">
-                <!-- YouTube -->
-                <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#FF2200] transition-colors flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-mono text-xs uppercase tracking-widest text-[#FF2200] bg-[#FF2200]/10 px-2.5 py-1 rounded">Principale</span>
-                            <span class="text-2xl font-bold">YouTube</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">@Misticko-968</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Live full horror, fan game di FNAF e video di altri videogiochi.</p>
-                    </div>
-                    <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="w-full text-center bg-[#FF2200] text-white py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-red-700 transition-colors">
-                        Iscriviti al canale
-                    </a>
-                </div>
-
-                <!-- Twitch -->
-                <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#9146FF] transition-colors flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-mono text-xs uppercase tracking-widest text-[#9146FF] bg-[#9146FF]/10 px-2.5 py-1 rounded">Live Stream</span>
-                            <span class="text-2xl font-bold">Twitch</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">Misticko96</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Live full horror e saga di FNAF.</p>
-                    </div>
-                    <a href="https://www.twitch.tv/misticko96" target="_blank" class="w-full text-center bg-[#9146FF] text-white py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-purple-700 transition-colors">
-                        Segui le live
-                    </a>
-                </div>
-
-                <!-- TikTok -->
-                <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#00F2FE] transition-colors flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <span class="font-mono text-xs uppercase tracking-widest text-[#00F2FE] bg-[#00F2FE]/10 px-2.5 py-1 rounded">Shorts</span>
-                            <span class="text-2xl font-bold">TikTok</span>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">@misticko96</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Clip di live e video.</p>
-                    </div>
-                    <a href="https://www.tiktok.com/@misticko96" target="_blank" class="w-full text-center bg-[#00F2FE] text-black py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-cyan-400 transition-colors">
-                        Guarda i clip
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione: Orari Live -->
-    <section id="orari" class="py-24 border-t border-white/10 bg-black/70">
-        <div class="mx-auto max-w-6xl px-5">
+<!-- Sezione: Richiesta Giochi & Commenti -->
+    <section id="richieste" class="py-24 border-t border-white/10 bg-black">
+        <div class="mx-auto max-w-4xl px-5">
             <div class="mb-12 text-center">
-                <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// PROGRAMMA TRASMISSIONI</span>
-                <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Orari delle Live</h2>
-                <p class="text-sm text-zinc-400 mt-2 font-mono">Preparati alla sopravvivenza nei seguenti giorni:</p>
+                <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// TERMINALE INTERATTIVO</span>
+                <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Suggerisci un Gioco</h2>
+                <p class="text-sm text-zinc-400 mt-2 font-mono max-w-lg mx-auto">
+                    Quale gioco o fan game horror dovrei portare nella prossima live o video? Lascia il tuo consiglio qui sotto!
+                </p>
             </div>
 
-            <div class="grid gap-4 md:grid-cols-4 max-w-4xl mx-auto">
-                <!-- Martedì -->
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 01</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Martedì</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
+            <!-- Box Contenitore Commenti (Giscus) -->
+            <div class="border border-white/15 bg-zinc-900/40 p-6 md:p-8 rounded-xl relative">
+                <!-- Dettaglio estetico stile terminale -->
+                <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10 font-mono text-xs text-zinc-500">
+                    <span class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full bg-[#FF5500]"></span> SESSIONE_COMMENTI_ATTIVA
+                    </span>
+                    <span>LOG_IN_CON_GITHUB</span>
                 </div>
 
-                <!-- Giovedì -->
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 02</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Giovedì</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
-                </div>
-
-                <!-- Sabato -->
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 03</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Sabato</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
-                </div>
-
-                <!-- Domenica -->
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 04</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Domenica</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
-                </div>
+                <!-- Script Giscus per i commenti (Sostituisci data-repo con il tuo username/repo di GitHub) -->
+                <script src="https://giscus.app/client.js"
+                        data-repo="Misticko-968/tuo-repo-name"
+                        data-repo-id="R_kgDOH..." 
+                        data-category="Announcements"
+                        data-category-id="DIC_kwDOH..."
+                        data-mapping="pathname"
+                        data-strict="0"
+                        data-reactions-enabled="1"
+                        data-emit-metadata="0"
+                        data-input-position="top"
+                        data-theme="dark_dimmed"
+                        data-lang="it"
+                        crossorigin="anonymous"
+                        async>
+                </script>
             </div>
         </div>
     </section>
-
-    <!-- Sezione: Ultimi Video & Live Dinamici -->
-    <section id="ultimi-video" class="py-24 border-t border-white/10 bg-black/90">
-        <div class="mx-auto max-w-6xl px-5">
-            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
-                <div>
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ARCHIVIO REGISTRAZIONI</span>
-                    <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Ultimi Video & Live</h2>
-                    <p class="text-sm text-zinc-400 mt-2 font-mono">Aggiornati automaticamente dal canale YouTube.</p>
-                </div>
-                <a href="https://www.youtube.com/@Misticko-968/videos" target="_blank" class="font-mono text-xs uppercase tracking-widest text-[#FF5500] hover:underline flex items-center gap-1">
-                    Vedi tutti su YouTube &rarr;
-                </a>
-            </div>
-
-            <!-- Griglia in cui lo script caricherà i video -->
-            <div id="youtube-videos" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="text-zinc-500 font-mono text-xs col-span-full py-8 text-center animate-pulse">
-                    Caricamento ultime registrazioni in corso...
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chi Sono -->
-    <section id="chi-sono" class="py-24 border-t border-white/10">
-        <div class="mx-auto max-w-4xl px-5 text-center">
-            <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ABOUT</span>
-            <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl mb-6">Chi è Misticko-968</h2>
-            <p class="text-zinc-400 text-base leading-relaxed max-w-2xl mx-auto mb-10">
-                Creator appassionato di survival horror e in particolare dell'universo di Five Nights at Freddy&apos;s. Ogni trasmissione è un test di resistenza per scoprire i segreti più oscuri nascosti dietro le telecamere di sicurezza.
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contatti" class="border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-500 font-mono">
-        <div class="mx-auto max-w-6xl px-5">
-            <p class="mb-4 uppercase tracking-widest text-zinc-400">Misticko-968 &copy; 2026 — Tutti i diritti riservati</p>
-            <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:misticko968181208@gmail.com" class="text-[#FF5500] hover:underline">misticko968181208@gmail.com</a></p>
-        </div>
-    </footer>
-
-    <!-- Script interattività & Caricamento automatico YouTube -->
-    <script>
-        const isLive = false; 
-
-        const badge = document.getElementById('live-badge');
-        const dot = document.getElementById('live-dot');
-        const text = document.getElementById('live-text');
-
-        if (isLive === true) {
-            badge.style.borderColor = "rgba(0, 255, 102, 0.4)";
-            badge.style.backgroundColor = "rgba(0, 255, 102, 0.05)";
-            dot.style.backgroundColor = "#00FF66";
-            dot.className = "h-2 w-2 rounded-full bg-[#00FF66] animate-pulse";
-            text.style.color = "#00FF66";
-            text.innerText = "Online su YouTube & Twitch";
-        } else {
-            badge.style.borderColor = "rgba(255, 34, 0, 0.4)";
-            badge.style.backgroundColor = "rgba(255, 34, 0, 0.05)";
-            dot.style.backgroundColor = "#FF2200";
-            dot.className = "h-2 w-2 rounded-full bg-[#FF2200]";
-            text.style.color = "#FF2200";
-            text.innerText = "Offline - Torno presto";
-        }
-
-        setInterval(() => {
-            const now = new Date();
-            document.getElementById('clock').innerText = now.toLocaleTimeString('it-IT');
-        }, 1000);
-
-        function changeCam(id, name, imgFile, evt) {
-            document.getElementById('cam-label').innerText = `CAM ${id} — ${name}`;
-            document.getElementById('cctv-img').src = imgFile;
-
-            const buttons = document.querySelectorAll('.cam-btn');
-            buttons.forEach(btn => {
-                btn.className = "cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
-            });
-            evt.currentTarget.className = "cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
-        }
-
-        // Script per prelevare automaticamente gli ultimi video dal canale YouTube tramite RSS via proxy pubblico
-        async function loadYouTubeVideos() {
-            const container = document.getElementById('youtube-videos');
-            // Utilizziamo l'ID o RSS del canale (@Misticko-968) tramite rss2json
-            const channelId = "UC..."; // Inserisci il Channel ID di YouTube se lo preferisci, oppure usa il feed rss convertito
-            // Un metodo più diretto e pulito senza ID complessi usa un servizio JSON pubblico o fetch del feed:
-            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=UCMisticko968`; // Sostituisci con il tuo Channel ID reale se lo hai, oppure usa un widget embed standard se preferisci stabilità al 100%
-            
-            // Alternativa ancora più robusta e pulita per GitHub Pages senza problemi di CORS:
-            // Sfruttiamo l'embed nativo di YouTube o un piccolo script feed.
-        }
-        
-        // Per semplicità e zero problemi di blocco CORS su GitHub Pages, se preferisci un aggiornamento automatico garantito senza script complessi, 
-        // la soluzione standard è usare un servizio gratuito come "RSS.app" o un widget widgetbox/elfsight per YouTube che si aggiorna da solo, 
-        // oppure incollarmi qui il tuo Channel ID di YouTube per configurarti il fetch corretto!
-    </script>
-</body>
-</html>
