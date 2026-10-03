@@ -203,69 +203,73 @@
             </div>
 
             <div class="grid gap-4 md:grid-cols-4 max-w-4xl mx-auto">
-                <!-- Martedì -->
                 <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
                     <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 01</span>
                     <h3 class="text-xl font-bold uppercase mb-2">Martedì</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
+                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
                 </div>
-
-                <!-- Giovedì -->
                 <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
                     <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 02</span>
                     <h3 class="text-xl font-bold uppercase mb-2">Giovedì</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
+                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
                 </div>
-
-                <!-- Sabato -->
                 <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
                     <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 03</span>
                     <h3 class="text-xl font-bold uppercase mb-2">Sabato</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
+                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
                 </div>
-
-                <!-- Domenica -->
                 <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
                     <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 04</span>
                     <h3 class="text-xl font-bold uppercase mb-2">Domenica</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">
-                        21:00
-                    </div>
+                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sezione: Ultimi Video & Live Dinamici -->
+    <!-- Sezione: Ultimi Video & Live (Stabile e Funzionante) -->
     <section id="ultimi-video" class="py-24 border-t border-white/10 bg-black/90">
         <div class="mx-auto max-w-6xl px-5">
             <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ARCHIVIO REGISTRAZIONI</span>
                     <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Ultimi Video & Live</h2>
-                    <p class="text-sm text-zinc-400 mt-2 font-mono">Aggiornati automaticamente dal canale YouTube.</p>
+                    <p class="text-sm text-zinc-400 mt-2 font-mono">Gli ultimi contenuti pubblicati sul canale ufficiale.</p>
                 </div>
                 <a href="https://www.youtube.com/@Misticko-968/videos" target="_blank" class="font-mono text-xs uppercase tracking-widest text-[#FF5500] hover:underline flex items-center gap-1">
                     Vedi tutti su YouTube &rarr;
                 </a>
             </div>
 
-            <!-- Griglia in cui lo script caricherà i video -->
-            <div id="youtube-videos" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="text-zinc-500 font-mono text-xs col-span-full py-8 text-center animate-pulse">
-                    Caricamento ultime registrazioni in corso...
+            <!-- Griglia stabile con player incorporato -->
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="border border-white/15 bg-zinc-900/50 rounded-xl overflow-hidden hover:border-[#FF5500] transition-colors">
+                    <div class="aspect-video w-full bg-black relative">
+                        <iframe class="w-full h-full absolute inset-0" src="https://www.youtube.com/embed?listType=user_uploads&list=Misticko-968" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-4">
+                        <span class="font-mono text-[10px] text-[#FF5500] uppercase tracking-widest block mb-1">Feed Ufficiale</span>
+                        <h3 class="text-sm font-bold text-white">Ultima Registrazione / Live</h3>
+                    </div>
+                </div>
+
+                <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl flex flex-col justify-between sm:col-span-1 lg:col-span-2">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-widest text-[#FF2200] bg-[#FF2200]/10 px-2.5 py-1 rounded inline-block mb-4">Canale YouTube</span>
+                        <h3 class="text-xl font-bold mb-2">Non perderti nessuna notifica</h3>
+                        <p class="text-sm text-zinc-400 mb-6">
+                            I video e le live vengono sincronizzati direttamente dal canale principale di YouTube. Clicca qui sotto per accedere direttamente a tutte le live complete di FNAF e agli ultimi gameplay.
+                        </p>
+                    </div>
+                    <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="bg-[#FF2200] text-white py-3 px-6 font-mono text-xs uppercase tracking-wider font-bold rounded text-center hover:bg-red-700 transition-colors">
+                        Vai al canale YouTube &rarr;
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NUOVA SEZIONE: Commenti & Fan Feed -->
+    <!-- Area Commenti & Fan Feed -->
     <section id="commenti" class="py-24 border-t border-white/10 bg-zinc-950/80">
         <div class="mx-auto max-w-4xl px-5">
             <div class="mb-12 text-center">
@@ -274,7 +278,6 @@
                 <p class="text-sm text-zinc-400 mt-2 font-mono">Lascia un messaggio, una segnalazione o un commento per la guardia notturna.</p>
             </div>
 
-            <!-- Box Form Invio Commento -->
             <div class="border border-[#FF5500]/30 bg-black/60 p-6 rounded-xl mb-10 neon-border">
                 <form id="comment-form" onsubmit="handleCommentSubmit(event)" class="space-y-4">
                     <div class="grid gap-4 sm:grid-cols-2">
@@ -304,10 +307,7 @@
                 </form>
             </div>
 
-            <!-- Lista dei Commenti Dinamica -->
-            <div id="comments-container" class="space-y-4">
-                <!-- I commenti salvati o predefiniti verranno inseriti qui via JS -->
-            </div>
+            <div id="comments-container" class="space-y-4"></div>
         </div>
     </section>
 
@@ -330,7 +330,7 @@
         </div>
     </footer>
 
-    <!-- Script interattività & Caricamento automatico YouTube & Commenti -->
+    <!-- Script Generali -->
     <script>
         const isLive = false; 
 
@@ -370,12 +370,11 @@
             evt.currentTarget.className = "cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
         }
 
-        // Gestione Commenti Locali con LocalStorage
         const defaultComments = [
             {
                 author: "FreddyFan_99",
                 shift: "Custom Night",
-                text: "Live epica ieri sera! La gestione delle porte a FNaF 3 è stata gestita alla grande.",
+                text: "Live epica ieri sera! La gestione delle porte a FNaF è stata gestita alla grande.",
                 date: "02/10/2026"
             },
             {
@@ -423,7 +422,7 @@
             const newComment = { author, shift, text, date };
             const comments = getStoredComments();
             
-            comments.unshift(newComment); // Aggiunge in cima
+            comments.unshift(newComment);
             localStorage.setItem('misticko_comments', JSON.stringify(comments));
 
             document.getElementById('comment-form').reset();
@@ -434,7 +433,6 @@
             return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
-        // Inizializza i commenti al caricamento
         document.addEventListener('DOMContentLoaded', () => {
             renderComments();
         });
