@@ -278,16 +278,16 @@
                 </div>
             </div>
 
-            <!-- Pulsanti Login Account -->
+            <!-- Pulsanti Login Account (Invertiti: YouTube, Twitch, TikTok) -->
             <div class="flex flex-wrap gap-3 mb-8">
                 <button onclick="loginWithPlatform('YouTube')" class="bg-[#FF0000] hover:bg-red-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
                     Accedi con YouTube
                 </button>
-                <button onclick="loginWithPlatform('TikTok')" class="bg-[#00F2FE] hover:bg-cyan-400 text-black font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
-                    Accedi con TikTok
-                </button>
                 <button onclick="loginWithPlatform('Twitch')" class="bg-[#9146FF] hover:bg-purple-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
                     Accedi con Twitch
+                </button>
+                <button onclick="loginWithPlatform('TikTok')" class="bg-[#00F2FE] hover:bg-cyan-400 text-black font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
+                    Accedi con TikTok
                 </button>
             </div>
 
@@ -470,7 +470,7 @@
             event.preventDefault();
             
             if (!loggedUser) {
-                alert("Errore: Devi prima effettuare il login cliccando su uno dei pulsanti colorati (YouTube, TikTok o Twitch)!");
+                alert("Errore: Devi prima effettuare il login cliccando su uno dei pulsanti colorati (YouTube, Twitch o TikTok)!");
                 return;
             }
 
