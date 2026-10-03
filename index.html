@@ -258,7 +258,7 @@
         </div>
     </section>
 
-    <!-- Area Commenti & Fan Feed (Con obbligo di login e fiammella personalizzata proprietario) -->
+    <!-- Area Commenti & Fan Feed (Con login interattivo e fiammella proprietario) -->
     <section id="commenti" class="py-24 border-t border-white/10 bg-zinc-950/80">
         <div class="mx-auto max-w-4xl px-5">
             <div class="mb-12 text-center">
@@ -268,20 +268,25 @@
             </div>
 
             <!-- Avviso obbligo login -->
-            <div class="border border-[#FF5500]/40 bg-[#FF5500]/10 p-4 rounded-xl mb-6 font-mono text-xs text-zinc-300 flex items-center gap-3">
-                <span class="text-[#FF5500] text-lg">⚠</span>
-                <span>Per evitare confusioni o scambi d'identità, è obbligatorio effettuare il login con il proprio account ufficiale (YouTube, TikTok o Twitch) per poter commentare.</span>
+            <div class="border border-[#FF5500]/40 bg-[#FF5500]/10 p-4 rounded-xl mb-6 font-mono text-xs text-zinc-300 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <span class="text-[#FF5500] text-lg">⚠</span>
+                    <span>Effettua il login con il tuo account ufficiale per poter scrivere un commento verificato.</span>
+                </div>
+                <div id="login-status" class="font-bold text-amber-400 uppercase text-[10px] bg-black/40 px-3 py-1.5 rounded border border-amber-500/30">
+                    Stato: Non loggato
+                </div>
             </div>
 
-            <!-- Pulsanti Login Account -->
+            <!-- Pulsanti Login Account (Funzionanti con prompt) -->
             <div class="flex flex-wrap gap-3 mb-8">
-                <button onclick="alert('Connessione account YouTube in corso...')" class="bg-[#FF0000] hover:bg-red-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2">
+                <button onclick="loginWithPlatform('YouTube')" class="bg-[#FF0000] hover:bg-red-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
                     Accedi con YouTube
                 </button>
-                <button onclick="alert('Connessione account TikTok in corso...')" class="bg-[#00F2FE] hover:bg-cyan-400 text-black font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2">
+                <button onclick="loginWithPlatform('TikTok')" class="bg-[#00F2FE] hover:bg-cyan-400 text-black font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
                     Accedi con TikTok
                 </button>
-                <button onclick="alert('Connessione account Twitch in corso...')" class="bg-[#9146FF] hover:bg-purple-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2">
+                <button onclick="loginWithPlatform('Twitch')" class="bg-[#9146FF] hover:bg-purple-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
                     Accedi con Twitch
                 </button>
             </div>
@@ -291,15 +296,21 @@
                 <form id="comment-form" onsubmit="handleCommentSubmit(event)" class="space-y-4">
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Nome / Nickname</label>
-                            <input type="text" id="comment-author" required placeholder="Prima effettua il login..." class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono">
+                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Nome / Nickname (Verificato)</label>
+                            <input type="text" id="comment-author" required readonly placeholder="Prima clicca su 'Accedi con...' sopra" class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-zinc-400 cursor-not-allowed font-mono">
                         </div>
                         <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Night Shift (Preferito)</label>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Categoria / Riferimento</label>
                             <select id="comment-shift" class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono">
+                                <option value="💬 Commento / Altro (Generico)">💬 Commento / Altro (Generico)</option>
                                 <option value="Notte 1">Notte 1</option>
                                 <option value="Notte 2">Notte 2</option>
                                 <option value="Notte 3">Notte 3</option>
+                                <option value="Notte 4">Notte 4</option>
+                                <option value="Notte 5">Notte 5</option>
+                                <option value="Notte 6">Notte 6</option>
+                                <option value="Notte 7">Notte 7</option>
+                                <option value="Notte 8">Notte 8</option>
                                 <option value="Custom Night">Custom Night</option>
                             </select>
                         </div>
@@ -309,7 +320,7 @@
                         <textarea id="comment-text" rows="3" required placeholder="Scrivi la tua recensione sulle live o un consiglio per sopravvivere..." class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono"></textarea>
                     </div>
                     <div class="flex justify-end">
-                        <button type="submit" class="bg-[#FF5500] hover:bg-[#FF9900] text-black font-bold font-mono text-xs uppercase tracking-widest px-6 py-2.5 rounded transition-colors">
+                        <button type="submit" class="bg-[#FF5500] hover:bg-[#FF9900] text-black font-bold font-mono text-xs uppercase tracking-widest px-6 py-2.5 rounded transition-colors cursor-pointer">
                             Invia Segnalazione
                         </button>
                     </div>
@@ -340,7 +351,7 @@
         </div>
     </footer>
 
-    <!-- Script Generali -->
+    <!-- Script Generali & Logica Login/Commenti -->
     <script>
         const isLive = false; 
 
@@ -380,12 +391,32 @@
             evt.currentTarget.className = "cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
         }
 
+        // Gestione Login Simulato
+        let loggedUser = null;
+        let loggedPlatform = null;
+
+        function loginWithPlatform(platform) {
+            let inputName = prompt(`Connessione a ${platform}\nInserisci il tuo nickname o nome utente ufficiale:`);
+            if (inputName && inputName.trim() !== "") {
+                loggedUser = inputName.trim();
+                loggedPlatform = platform;
+                
+                document.getElementById('comment-author').value = loggedUser;
+                const statusDiv = document.getElementById('login-status');
+                statusDiv.innerText = `Loggato come: ${loggedUser} (${platform})`;
+                statusDiv.className = "font-bold text-emerald-400 uppercase text-[10px] bg-black/40 px-3 py-1.5 rounded border border-emerald-500/30";
+                
+                alert(`Autenticazione riuscita con successo tramite ${platform}! Ora puoi inviare il tuo commento.`);
+            }
+        }
+
         const defaultComments = [
             {
                 author: "Misticko-968",
-                shift: "Custom Night",
-                text: "Benvenuti ragazzi! Ricordatevi di fare il login con i vostri account ufficiali e di lasciare un feedback per le prossime live horror.",
+                shift: "💬 Commento / Altro (Generico)",
+                text: "Benvenuti ragazzi nel nuovo spazio commenti! Ricordatevi di effettuare il login con i vostri account ufficiali.",
                 date: "03/10/2026",
+                platform: "YouTube",
                 isOwner: true
             },
             {
@@ -393,6 +424,7 @@
                 shift: "Notte 3",
                 text: "Live epica ieri sera! La gestione delle telecamere è stata gestita alla grande.",
                 date: "02/10/2026",
+                platform: "Twitch",
                 isOwner: false
             }
         ];
@@ -411,9 +443,11 @@
                 const card = document.createElement('div');
                 card.className = "border border-white/10 bg-zinc-900/40 p-4 rounded-lg font-mono";
                 
-                // Se è il proprietario, aggiunge la fiammella personalizzata CSS
+                // Controllo ufficiale proprietario (solo se il nome esatto corrisponde)
+                const isRealOwner = c.author.toLowerCase() === "misticko-968" && c.isOwner === true;
+
                 let authorHtml = `<span class="text-[#FF5500] font-bold text-sm">${escapeHtml(c.author)}</span>`;
-                if (c.isOwner) {
+                if (isRealOwner) {
                     authorHtml += `<span class="custom-flame-badge" title="Proprietario Ufficiale"></span>`;
                 }
 
@@ -422,6 +456,7 @@
                         <div class="flex items-center gap-2">
                             ${authorHtml}
                             <span class="text-[10px] bg-white/10 text-zinc-300 px-2 py-0.5 rounded uppercase">${escapeHtml(c.shift)}</span>
+                            <span class="text-[9px] text-zinc-500">(${escapeHtml(c.platform || 'Web')})</span>
                         </div>
                         <span class="text-[11px] text-zinc-500">${escapeHtml(c.date)}</span>
                     </div>
@@ -433,21 +468,28 @@
 
         function handleCommentSubmit(event) {
             event.preventDefault();
-            const author = document.getElementById('comment-author').value;
+            
+            if (!loggedUser) {
+                alert("Errore: Devi prima effettuare il login cliccando su uno dei pulsanti colorati (YouTube, TikTok o Twitch)!");
+                return;
+            }
+
+            const author = loggedUser;
             const shift = document.getElementById('comment-shift').value;
             const text = document.getElementById('comment-text').value;
             const date = new Date().toLocaleDateString('it-IT');
+            const platform = loggedPlatform;
             
-            // Controlla se l'autore sta tentando di usare il tuo nome esatto per bloccarlo o marchiarlo correttamente
-            const isOwner = author.toLowerCase() === "misticko-968";
+            // Diventa proprietario con fiammella SOLO se l'utente loggato si chiama esattamente Misticko-968
+            const isOwner = (author.toLowerCase() === "misticko-968");
 
-            const newComment = { author, shift, text, date, isOwner };
+            const newComment = { author, shift, text, date, platform, isOwner };
             const comments = getStoredComments();
             
             comments.unshift(newComment);
             localStorage.setItem('misticko_comments', JSON.stringify(comments));
 
-            document.getElementById('comment-form').reset();
+            document.getElementById('comment-text').value = '';
             renderComments();
         }
 
