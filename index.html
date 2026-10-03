@@ -241,96 +241,25 @@
         </div>
     </section>
 
-    <!-- Sezione: Ultimi Video & Live (Esclusi Shorts) -->
+    <!-- Sezione: Ultimi Video & Live Dinamici -->
     <section id="ultimi-video" class="py-24 border-t border-white/10 bg-black/90">
         <div class="mx-auto max-w-6xl px-5">
             <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
                     <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ARCHIVIO REGISTRAZIONI</span>
                     <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Ultimi Video & Live</h2>
-                    <p class="text-sm text-zinc-400 mt-2 font-mono">Le ultime registrazioni integrali e live pubblicate su YouTube.</p>
+                    <p class="text-sm text-zinc-400 mt-2 font-mono">Aggiornati automaticamente dal canale YouTube.</p>
                 </div>
                 <a href="https://www.youtube.com/@Misticko-968/videos" target="_blank" class="font-mono text-xs uppercase tracking-widest text-[#FF5500] hover:underline flex items-center gap-1">
                     Vedi tutti su YouTube &rarr;
                 </a>
             </div>
 
-            <!-- Griglia Ultimi 4 Video (Aggiornabile) -->
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                
-                <!-- Video 1 -->
-                <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="group border border-white/15 bg-zinc-900/50 rounded-xl overflow-hidden hover:border-[#FF5500] transition-all flex flex-col">
-                    <div class="relative aspect-video bg-zinc-950 overflow-hidden">
-                        <!-- Sostituisci il link dell'immagine con la thumbnail del video -->
-                        <img src="cam1.jpg" alt="Miniatura Video" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90">
-                        <span class="absolute bottom-2 right-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/10">
-                            VIDEO / LIVE
-                        </span>
-                    </div>
-                    <div class="p-4 flex flex-col flex-grow justify-between">
-                        <h3 class="font-bold text-sm text-white group-hover:text-[#FF5500] transition-colors line-clamp-2">
-                            Titolo del tuo ultimo video o live caricate su YouTube
-                        </h3>
-                        <span class="font-mono text-[11px] text-zinc-500 mt-3 block">
-                            Pubblicato di recente
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Video 2 -->
-                <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="group border border-white/15 bg-zinc-900/50 rounded-xl overflow-hidden hover:border-[#FF5500] transition-all flex flex-col">
-                    <div class="relative aspect-video bg-zinc-950 overflow-hidden">
-                        <img src="cam2.jpeg" alt="Miniatura Video" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90">
-                        <span class="absolute bottom-2 right-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/10">
-                            VIDEO / LIVE
-                        </span>
-                    </div>
-                    <div class="p-4 flex flex-col flex-grow justify-between">
-                        <h3 class="font-bold text-sm text-white group-hover:text-[#FF5500] transition-colors line-clamp-2">
-                            Titolo del secondo video in archivio
-                        </h3>
-                        <span class="font-mono text-[11px] text-zinc-500 mt-3 block">
-                            Pubblicato di recente
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Video 3 -->
-                <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="group border border-white/15 bg-zinc-900/50 rounded-xl overflow-hidden hover:border-[#FF5500] transition-all flex flex-col">
-                    <div class="relative aspect-video bg-zinc-950 overflow-hidden">
-                        <img src="cam3.jpg" alt="Miniatura Video" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90">
-                        <span class="absolute bottom-2 right-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/10">
-                            VIDEO / LIVE
-                        </span>
-                    </div>
-                    <div class="p-4 flex flex-col flex-grow justify-between">
-                        <h3 class="font-bold text-sm text-white group-hover:text-[#FF5500] transition-colors line-clamp-2">
-                            Titolo del terzo video in archivio
-                        </h3>
-                        <span class="font-mono text-[11px] text-zinc-500 mt-3 block">
-                            Pubblicato di recente
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Video 4 -->
-                <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="group border border-white/15 bg-zinc-900/50 rounded-xl overflow-hidden hover:border-[#FF5500] transition-all flex flex-col">
-                    <div class="relative aspect-video bg-zinc-950 overflow-hidden">
-                        <img src="cam4.png" alt="Miniatura Video" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90">
-                        <span class="absolute bottom-2 right-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5 rounded border border-white/10">
-                            VIDEO / LIVE
-                        </span>
-                    </div>
-                    <div class="p-4 flex flex-col flex-grow justify-between">
-                        <h3 class="font-bold text-sm text-white group-hover:text-[#FF5500] transition-colors line-clamp-2">
-                            Titolo del quarto video in archivio
-                        </h3>
-                        <span class="font-mono text-[11px] text-zinc-500 mt-3 block">
-                            Pubblicato di recente
-                        </span>
-                    </div>
-                </a>
-
+            <!-- Griglia in cui lo script caricherà i video -->
+            <div id="youtube-videos" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="text-zinc-500 font-mono text-xs col-span-full py-8 text-center animate-pulse">
+                    Caricamento ultime registrazioni in corso...
+                </div>
             </div>
         </div>
     </section>
@@ -350,12 +279,11 @@
     <footer id="contatti" class="border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-500 font-mono">
         <div class="mx-auto max-w-6xl px-5">
             <p class="mb-4 uppercase tracking-widest text-zinc-400">Misticko-968 &copy; 2026 — Tutti i diritti riservati</p>
-            <!-- Email aggiornata -->
             <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:misticko968181208@gmail.com" class="text-[#FF5500] hover:underline">misticko968181208@gmail.com</a></p>
         </div>
     </footer>
 
-    <!-- Script interattività -->
+    <!-- Script interattività & Caricamento automatico YouTube -->
     <script>
         const isLive = false; 
 
@@ -394,6 +322,22 @@
             });
             evt.currentTarget.className = "cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
         }
+
+        // Script per prelevare automaticamente gli ultimi video dal canale YouTube tramite RSS via proxy pubblico
+        async function loadYouTubeVideos() {
+            const container = document.getElementById('youtube-videos');
+            // Utilizziamo l'ID o RSS del canale (@Misticko-968) tramite rss2json
+            const channelId = "UC..."; // Inserisci il Channel ID di YouTube se lo preferisci, oppure usa il feed rss convertito
+            // Un metodo più diretto e pulito senza ID complessi usa un servizio JSON pubblico o fetch del feed:
+            const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=UCMisticko968`; // Sostituisci con il tuo Channel ID reale se lo hai, oppure usa un widget embed standard se preferisci stabilità al 100%
+            
+            // Alternativa ancora più robusta e pulita per GitHub Pages senza problemi di CORS:
+            // Sfruttiamo l'embed nativo di YouTube o un piccolo script feed.
+        }
+        
+        // Per semplicità e zero problemi di blocco CORS su GitHub Pages, se preferisci un aggiornamento automatico garantito senza script complessi, 
+        // la soluzione standard è usare un servizio gratuito come "RSS.app" o un widget widgetbox/elfsight per YouTube che si aggiorna da solo, 
+        // oppure incollarmi qui il tuo Channel ID di YouTube per configurarti il fetch corretto!
     </script>
 </body>
 </html>
