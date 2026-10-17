@@ -340,7 +340,7 @@
             <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ABOUT</span>
             <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl mb-6">Chi è Misticko-968</h2>
             <p class="text-zinc-400 text-base leading-relaxed max-w-2xl mx-auto mb-10">
-                Creator appassionato di survival horror e in particolare dell'universo di Five Nights at Freddy's. Ogni trasmissione è un test di resistenza per scoprire i segreti più oscuri nascosti dietro le telecamere di sicurezza.
+                Creator appassionato di survival horror e in particolare dell'universo di Five Nights at Freddy&apos;s. Ogni trasmissione è un test di resistenza per scoprire i segreti più oscuri nascosti dietro le telecamere di sicurezza.
             </p>
         </div>
     </section>
@@ -355,7 +355,7 @@
 
     <!-- Script Generali & Logica Login/Commenti -->
     <script>
-        // Imposta su true quando vai in streaming, false quando sei offline
+        // Modifica questo flag in true quando vai in live, false quando sei offline
         const isLive = false; 
 
         function updateLiveBadge() {
@@ -365,7 +365,7 @@
 
             if (!badge || !dot || !text) return;
 
-            if (isLive) {
+            if (isLive === true) {
                 badge.className = "mb-6 inline-flex items-center gap-2 px-3 py-1.5 border border-emerald-500/40 bg-emerald-500/10 rounded transition-colors";
                 dot.className = "h-2 w-2 rounded-full bg-[#00FF66] animate-pulse";
                 text.className = "font-mono text-[11px] uppercase tracking-widest text-[#00FF66]";
@@ -449,7 +449,6 @@
                 const card = document.createElement('div');
                 card.className = "border border-white/10 bg-zinc-900/40 p-4 rounded-lg font-mono";
                 
-                // Controllo ufficiale proprietario (solo se il nome esatto corrisponde)
                 const isRealOwner = c.author.toLowerCase() === "misticko-968" && c.isOwner === true;
 
                 let authorHtml = `<span class="text-[#FF5500] font-bold text-sm">${escapeHtml(c.author)}</span>`;
@@ -486,7 +485,6 @@
             const date = new Date().toLocaleDateString('it-IT');
             const platform = loggedPlatform;
             
-            // Diventa proprietario con fiammella SOLO se l'utente loggato si chiama esattamente Misticko-968
             const isOwner = (author.toLowerCase() === "misticko-968");
 
             const newComment = { author, shift, text, date, platform, isOwner };
