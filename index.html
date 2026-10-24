@@ -79,8 +79,8 @@
 </head>
 <body class="bg-[#070709] text-white font-sans selection:bg-[#FF5500] selection:text-black">
 
-    <!-- Scanlines Overlay (Abbassato lo z-index a z-10) -->
-    <div class="scanlines pointer-events-none fixed inset-0 z-10 opacity-65"></div>
+    <!-- Scanlines Overlay -->
+    <div class="scanlines pointer-events-none fixed inset-0 z-50 opacity-65"></div>
 
     <!-- Header / Navbar -->
     <header class="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black/80 backdrop-blur-md">
@@ -108,7 +108,7 @@
     </header>
 
     <!-- Hero Section & Monitor CCTV -->
-    <section id="top" class="relative overflow-hidden pt-28 pb-20 z-20">
+    <section id="top" class="relative overflow-hidden pt-28 pb-20">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,85,0,0.12),transparent_55%)]"></div>
         
         <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pt-12 lg:grid-cols-2 lg:items-center">
@@ -131,7 +131,7 @@
             </div>
 
             <!-- Monitor CCTV Interattivo -->
-            <div class="relative z-30">
+            <div>
                 <div class="neon-border relative overflow-hidden border border-[#FF5500]/40 bg-black rounded-lg">
                     <div class="flex items-center justify-between border-b border-white/10 bg-[#0F0F14] px-4 py-2.5">
                         <span id="cam-label" class="font-mono text-[11px] uppercase tracking-widest text-amber-500 font-bold">
@@ -152,19 +152,19 @@
                     </div>
                 </div>
 
-                <!-- Pulsanti Cam (Con elevato z-index per garantire il click) -->
-                <div class="relative z-30 mt-4 grid grid-cols-4 gap-2 font-mono">
-                    <button type="button" onclick="changeCam('01', 'Main Stage', 'cam1.jpg', this)" class="cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 01</button>
-                    <button type="button" onclick="changeCam('02', 'Security Desk', 'cam2.jpeg', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 02</button>
-                    <button type="button" onclick="changeCam('03', 'Parts & Service', 'cam3.jpg', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 03</button>
-                    <button type="button" onclick="changeCam('04', 'Dark Corner', 'cam4.png', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 04</button>
+                <!-- Pulsanti Cam -->
+                <div class="mt-4 grid grid-cols-4 gap-2 font-mono">
+                    <button onclick="changeCam('01', 'Main Stage', 'cam1.jpg', event)" class="cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 01</button>
+                    <button onclick="changeCam('02', 'Security Desk', 'cam2.jpeg', event)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 02</button>
+                    <button onclick="changeCam('03', 'Parts & Service', 'cam3.jpg', event)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 03</button>
+                    <button onclick="changeCam('04', 'Dark Corner', 'cam4.png', event)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 04</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Social Hub -->
-    <section id="socials" class="relative z-20 py-24 border-t border-white/10 bg-black/40">
+    <section id="socials" class="py-24 border-t border-white/10 bg-black/40">
         <div class="mx-auto max-w-6xl px-5">
             <div class="mb-12">
                 <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// SOCIAL NETWORK</span>
@@ -221,7 +221,7 @@
     </section>
 
     <!-- Sezione: Orari Live -->
-    <section id="orari" class="relative z-20 py-24 border-t border-white/10 bg-black/70">
+    <section id="orari" class="py-24 border-t border-white/10 bg-black/70">
         <div class="mx-auto max-w-6xl px-5">
             <div class="mb-12 text-center">
                 <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// PROGRAMMA TRASMISSIONI</span>
@@ -245,123 +245,4 @@
                     <h3 class="text-xl font-bold uppercase mb-2">Sabato</h3>
                     <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
                 </div>
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 04</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Domenica</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Area Commenti & Fan Feed -->
-    <section id="commenti" class="relative z-20 py-24 border-t border-white/10 bg-zinc-950/80">
-        <div class="mx-auto max-w-4xl px-5">
-            <div class="mb-12 text-center">
-                <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// SECURITY LOGS & FEEDBACK</span>
-                <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Area Commenti & Fan Feed</h2>
-                <p class="text-sm text-zinc-400 mt-2 font-mono">Lascia un messaggio, una segnalazione o un commento per la guardia notturna.</p>
-            </div>
-
-            <!-- Avviso obbligo login -->
-            <div class="border border-[#FF5500]/40 bg-[#FF5500]/10 p-4 rounded-xl mb-6 font-mono text-xs text-zinc-300 flex items-center justify-between gap-3">
-                <div class="flex items-center gap-3">
-                    <span class="text-[#FF5500] text-lg">⚠</span>
-                    <span>Effettua il login con il tuo account ufficiale per poter scrivere un commento verificato.</span>
-                </div>
-                <div id="login-status" class="font-bold text-amber-400 uppercase text-[10px] bg-black/40 px-3 py-1.5 rounded border border-amber-500/30">
-                    Stato: Non loggato
-                </div>
-            </div>
-
-            <!-- Pulsanti Login Account -->
-            <div class="flex flex-wrap gap-3 mb-8">
-                <button onclick="loginWithPlatform('YouTube')" class="bg-[#FF0000] hover:bg-red-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
-                    Accedi con YouTube
-                </button>
-                <button onclick="loginWithPlatform('Twitch')" class="bg-[#9146FF] hover:bg-purple-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
-                    Accedi con Twitch
-                </button>
-                <button onclick="loginWithPlatform('TikTok')" class="bg-[#00F2FE] hover:bg-cyan-400 text-black font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
-                    Accedi con TikTok
-                </button>
-            </div>
-
-            <!-- Box Form Invio Commento -->
-            <div class="border border-[#FF5500]/30 bg-black/60 p-6 rounded-xl mb-10 neon-border">
-                <form id="comment-form" onsubmit="handleCommentSubmit(event)" class="space-y-4">
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Nome / Nickname (Verificato)</label>
-                            <input type="text" id="comment-author" required readonly placeholder="Prima clicca su 'Accedi con...' sopra" class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-zinc-400 cursor-not-allowed font-mono">
-                        </div>
-                        <div>
-                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Categoria / Riferimento</label>
-                            <select id="comment-shift" class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono">
-                                <option value="💬 Commento / Altro (Generico)">💬 Commento / Altro (Generico)</option>
-                                <option value="Notte 1">Notte 1</option>
-                                <option value="Notte 2">Notte 2</option>
-                                <option value="Notte 3">Notte 3</option>
-                                <option value="Notte 4">Notte 4</option>
-                                <option value="Notte 5">Notte 5</option>
-                                <option value="Notte 6">Notte 6</option>
-                                <option value="Notte 7">Notte 7</option>
-                                <option value="Notte 8">Notte 8</option>
-                                <option value="Custom Night">Custom Night</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Messaggio</label>
-                        <textarea id="comment-text" rows="3" required placeholder="Scrivi la tua recensione sulle live o un consiglio per sopravvivere..." class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono"></textarea>
-                    </div>
-                    <div class="flex justify-end">
-                        <button type="submit" class="bg-[#FF5500] hover:bg-[#FF9900] text-black font-bold font-mono text-xs uppercase tracking-widest px-6 py-2.5 rounded transition-colors cursor-pointer">
-                            Invia Commento
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Lista dei Commenti Dinamica -->
-            <div id="comments-container" class="space-y-4"></div>
-        </div>
-    </section>
-
-    <!-- Chi Sono -->
-    <section id="chi-sono" class="relative z-20 py-24 border-t border-white/10">
-        <div class="mx-auto max-w-4xl px-5 text-center">
-            <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ABOUT</span>
-            <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl mb-6">Chi è Misticko-968</h2>
-            <p class="text-zinc-400 text-base leading-relaxed max-w-2xl mx-auto mb-10">
-                Creator appassionato di survival horror e in particolare dell'universo di Five Nights at Freddy&apos;s. Ogni trasmissione è un test di resistenza per scoprire i segreti più oscuri nascosti dietro le telecamere di sicurezza.
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contatti" class="relative z-20 border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-500 font-mono">
-        <div class="mx-auto max-w-6xl px-5">
-            <p class="mb-4 uppercase tracking-widest text-zinc-400">Misticko-968 &copy; 2026 — Tutti i diritti riservati</p>
-            <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:misticko968181208@gmail.com" class="text-[#FF5500] hover:underline">misticko968181208@gmail.com</a></p>
-        </div>
-    </footer>
-
-    <!-- Script Generali & Logica Login/Commenti -->
-    <script>
-        setInterval(() => {
-            const now = new Date();
-            const clockEl = document.getElementById('clock');
-            if (clockEl) {
-                clockEl.innerText = now.toLocaleTimeString('it-IT');
-            }
-        }, 1000);
-
-        function changeCam(id, name, imgFile, btnEl) {
-            const labelEl = document.getElementById('cam-label');
-            const imgEl = document.getElementById('cctv-img');
-
-            if (labelEl) labelEl.innerText = `CAM ${id} — ${name}`;
-            if (imgEl) imgEl.src = imgFile;
-
-            const buttons =
+                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center
