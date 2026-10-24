@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misticko-968 — FNaF Content Creator & Streamer</title>
-    <!-- Favicon del canale -->
-    <link rel="icon" type="image/png" href="logo.png">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -96,7 +94,6 @@
             </a>
             <div class="hidden items-center gap-7 md:flex">
                 <a href="#socials" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Social Hub</a>
-                <a href="#orari" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Orari Live</a>
                 <a href="#commenti" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Commenti</a>
                 <a href="#chi-sono" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Chi Sono</a>
                 <a href="#contatti" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Contatti</a>
@@ -113,6 +110,12 @@
         
         <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pt-12 lg:grid-cols-2 lg:items-center">
             <div>
+                <!-- Badge Stato Live Dinamico -->
+                <div id="live-badge" class="mb-6 inline-flex items-center gap-2 px-3 py-1.5 border transition-colors">
+                    <span id="live-dot" class="h-2 w-2 rounded-full"></span>
+                    <span id="live-text" class="font-mono text-[11px] uppercase tracking-widest"></span>
+                </div>
+                
                 <h1 class="text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
                     <span class="block text-white">Sopravvivi</span>
                     <span class="block text-[#FF5500] neon-glow my-1">alla notte</span>
@@ -193,4 +196,114 @@
                             <span class="text-2xl font-bold">Twitch</span>
                         </div>
                         <h3 class="text-lg font-bold mb-2">Misticko96</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Maratone notturne
+                        <p class="text-sm text-zinc-400 mb-6">Maratone notturne 50/20 mode, custom night challenge e reazioni live.</p>
+                    </div>
+                    <a href="https://www.twitch.tv/misticko96" target="_blank" class="w-full text-center bg-[#9146FF] text-white py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-purple-700 transition-colors">
+                        Segui le live
+                    </a>
+                </div>
+
+                <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#00F2FE] transition-colors flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-mono text-xs uppercase tracking-widest text-[#00F2FE] bg-[#00F2FE]/10 px-2.5 py-1 rounded">Shorts</span>
+                            <span class="text-2xl font-bold">TikTok</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">@misticko96</h3>
+                        <p class="text-sm text-zinc-400 mb-6">Jumpscare clip, easter egg rapidi, meme e teorie in 60 secondi.</p>
+                    </div>
+                    <a href="https://www.tiktok.com/@misticko96" target="_blank" class="w-full text-center bg-[#00F2FE] text-black py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-cyan-400 transition-colors">
+                        Guarda i clip
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Area Commenti & Fan Feed -->
+    <section id="commenti" class="py-24 border-t border-white/10 bg-zinc-950/80">
+        <div class="mx-auto max-w-4xl px-5">
+            <div class="mb-12 text-center">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// SECURITY LOGS & FEEDBACK</span>
+                <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Area Commenti & Fan Feed</h2>
+                <p class="text-sm text-zinc-400 mt-2 font-mono">Lascia un messaggio, una segnalazione o un commento per la guardia notturna.</p>
+            </div>
+
+            <!-- Avviso obbligo login -->
+            <div class="border border-[#FF5500]/40 bg-[#FF5500]/10 p-4 rounded-xl mb-6 font-mono text-xs text-zinc-300 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <span class="text-[#FF5500] text-lg">⚠</span>
+                    <span>Effettua il login con il tuo account ufficiale per poter scrivere un commento verificato.</span>
+                </div>
+                <div id="login-status" class="font-bold text-amber-400 uppercase text-[10px] bg-black/40 px-3 py-1.5 rounded border border-amber-500/30">
+                    Stato: Non loggato
+                </div>
+            </div>
+
+            <!-- Pulsanti Login Account -->
+            <div class="flex flex-wrap gap-3 mb-8">
+                <button onclick="loginWithPlatform('YouTube')" class="bg-[#FF0000] hover:bg-red-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
+                    Accedi con YouTube
+                </button>
+                <button onclick="loginWithPlatform('Twitch')" class="bg-[#9146FF] hover:bg-purple-700 text-white font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
+                    Accedi con Twitch
+                </button>
+                <button onclick="loginWithPlatform('TikTok')" class="bg-[#00F2FE] hover:bg-cyan-400 text-black font-mono text-xs uppercase font-bold px-4 py-2.5 rounded transition-colors flex items-center gap-2 cursor-pointer">
+                    Accedi con TikTok
+                </button>
+            </div>
+
+            <!-- Box Form Invio Commento -->
+            <div class="border border-[#FF5500]/30 bg-black/60 p-6 rounded-xl mb-10 neon-border">
+                <form id="comment-form" onsubmit="handleCommentSubmit(event)" class="space-y-4">
+                    <div class="grid gap-4 sm:grid-cols-2">
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Nome / Nickname (Verificato)</label>
+                            <input type="text" id="comment-author" required readonly placeholder="Prima clicca su 'Accedi con...' sopra" class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-zinc-400 cursor-not-allowed font-mono">
+                        </div>
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Categoria / Riferimento</label>
+                            <select id="comment-shift" class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono">
+                                <option value="💬 Commento / Altro (Generico)">💬 Commento / Altro (Generico)</option>
+                                <option value="Notte 1">Notte 1</option>
+                                <option value="Notte 2">Notte 2</option>
+                                <option value="Notte 3">Notte 3</option>
+                                <option value="Notte 4">Notte 4</option>
+                                <option value="Notte 5">Notte 5</option>
+                                <option value="Notte 6">Notte 6</option>
+                                <option value="Notte 7">Notte 7</option>
+                                <option value="Notte 8">Notte 8</option>
+                                <option value="Custom Night">Custom Night</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block font-mono text-xs uppercase tracking-widest text-zinc-400 mb-1">Messaggio</label>
+                        <textarea id="comment-text" rows="3" required placeholder="Scrivi la tua recensione sulle live o un consiglio per sopravvivere..." class="w-full bg-zinc-900 border border-white/15 rounded px-3 py-2 text-sm text-white focus:border-[#FF5500] focus:outline-none font-mono"></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-[#FF5500] hover:bg-[#FF9900] text-black font-bold font-mono text-xs uppercase tracking-widest px-6 py-2.5 rounded transition-colors cursor-pointer">
+                            Invia Commento
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista dei Commenti Dinamica -->
+            <div id="comments-container" class="space-y-4"></div>
+        </div>
+    </section>
+
+    <!-- Chi Sono -->
+    <section id="chi-sono" class="py-24 border-t border-white/10">
+        <div class="mx-auto max-w-4xl px-5 text-center">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ABOUT</span>
+            <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl mb-6">Chi è Misticko-968</h2>
+            <p class="text-zinc-400 text-base leading-relaxed max-w-2xl mx-auto mb-10">
+                Creator appassionato di survival horror e in particolare dell'universo di Five Nights at Freddy&apos;s. Ogni trasmissione è un test di resistenza per scoprire i segreti più oscuri nascosti dietro le telecamere di sicurezza.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contatti" class="border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-5
