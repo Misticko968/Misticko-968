@@ -79,8 +79,8 @@
 </head>
 <body class="bg-[#070709] text-white font-sans selection:bg-[#FF5500] selection:text-black">
 
-    <!-- Scanlines Overlay -->
-    <div class="scanlines pointer-events-none fixed inset-0 z-50 opacity-65"></div>
+    <!-- Scanlines Overlay (Abbassato lo z-index a z-10) -->
+    <div class="scanlines pointer-events-none fixed inset-0 z-10 opacity-65"></div>
 
     <!-- Header / Navbar -->
     <header class="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-black/80 backdrop-blur-md">
@@ -108,7 +108,7 @@
     </header>
 
     <!-- Hero Section & Monitor CCTV -->
-    <section id="top" class="relative overflow-hidden pt-28 pb-20">
+    <section id="top" class="relative overflow-hidden pt-28 pb-20 z-20">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,85,0,0.12),transparent_55%)]"></div>
         
         <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pt-12 lg:grid-cols-2 lg:items-center">
@@ -131,7 +131,7 @@
             </div>
 
             <!-- Monitor CCTV Interattivo -->
-            <div>
+            <div class="relative z-30">
                 <div class="neon-border relative overflow-hidden border border-[#FF5500]/40 bg-black rounded-lg">
                     <div class="flex items-center justify-between border-b border-white/10 bg-[#0F0F14] px-4 py-2.5">
                         <span id="cam-label" class="font-mono text-[11px] uppercase tracking-widest text-amber-500 font-bold">
@@ -152,19 +152,19 @@
                     </div>
                 </div>
 
-                <!-- Pulsanti Cam -->
-                <div class="mt-4 grid grid-cols-4 gap-2 font-mono">
-                    <button onclick="changeCam('01', 'Main Stage', 'cam1.jpg', this)" class="cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 01</button>
-                    <button onclick="changeCam('02', 'Security Desk', 'cam2.jpeg', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 02</button>
-                    <button onclick="changeCam('03', 'Parts & Service', 'cam3.jpg', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 03</button>
-                    <button onclick="changeCam('04', 'Dark Corner', 'cam4.png', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all">CAM 04</button>
+                <!-- Pulsanti Cam (Con elevato z-index per garantire il click) -->
+                <div class="relative z-30 mt-4 grid grid-cols-4 gap-2 font-mono">
+                    <button type="button" onclick="changeCam('01', 'Main Stage', 'cam1.jpg', this)" class="cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 01</button>
+                    <button type="button" onclick="changeCam('02', 'Security Desk', 'cam2.jpeg', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 02</button>
+                    <button type="button" onclick="changeCam('03', 'Parts & Service', 'cam3.jpg', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 03</button>
+                    <button type="button" onclick="changeCam('04', 'Dark Corner', 'cam4.png', this)" class="cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all cursor-pointer">CAM 04</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Social Hub -->
-    <section id="socials" class="py-24 border-t border-white/10 bg-black/40">
+    <section id="socials" class="relative z-20 py-24 border-t border-white/10 bg-black/40">
         <div class="mx-auto max-w-6xl px-5">
             <div class="mb-12">
                 <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// SOCIAL NETWORK</span>
@@ -221,7 +221,7 @@
     </section>
 
     <!-- Sezione: Orari Live -->
-    <section id="orari" class="py-24 border-t border-white/10 bg-black/70">
+    <section id="orari" class="relative z-20 py-24 border-t border-white/10 bg-black/70">
         <div class="mx-auto max-w-6xl px-5">
             <div class="mb-12 text-center">
                 <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// PROGRAMMA TRASMISSIONI</span>
@@ -255,7 +255,7 @@
     </section>
 
     <!-- Area Commenti & Fan Feed -->
-    <section id="commenti" class="py-24 border-t border-white/10 bg-zinc-950/80">
+    <section id="commenti" class="relative z-20 py-24 border-t border-white/10 bg-zinc-950/80">
         <div class="mx-auto max-w-4xl px-5">
             <div class="mb-12 text-center">
                 <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// SECURITY LOGS & FEEDBACK</span>
@@ -329,7 +329,7 @@
     </section>
 
     <!-- Chi Sono -->
-    <section id="chi-sono" class="py-24 border-t border-white/10">
+    <section id="chi-sono" class="relative z-20 py-24 border-t border-white/10">
         <div class="mx-auto max-w-4xl px-5 text-center">
             <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ABOUT</span>
             <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl mb-6">Chi è Misticko-968</h2>
@@ -340,4 +340,28 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contatti" class="border-t border-white/10 bg-black py-12 text-center text-xs text
+    <footer id="contatti" class="relative z-20 border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-500 font-mono">
+        <div class="mx-auto max-w-6xl px-5">
+            <p class="mb-4 uppercase tracking-widest text-zinc-400">Misticko-968 &copy; 2026 — Tutti i diritti riservati</p>
+            <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:misticko968181208@gmail.com" class="text-[#FF5500] hover:underline">misticko968181208@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Script Generali & Logica Login/Commenti -->
+    <script>
+        setInterval(() => {
+            const now = new Date();
+            const clockEl = document.getElementById('clock');
+            if (clockEl) {
+                clockEl.innerText = now.toLocaleTimeString('it-IT');
+            }
+        }, 1000);
+
+        function changeCam(id, name, imgFile, btnEl) {
+            const labelEl = document.getElementById('cam-label');
+            const imgEl = document.getElementById('cctv-img');
+
+            if (labelEl) labelEl.innerText = `CAM ${id} — ${name}`;
+            if (imgEl) imgEl.src = imgFile;
+
+            const buttons =
