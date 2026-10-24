@@ -113,12 +113,6 @@
         
         <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pt-12 lg:grid-cols-2 lg:items-center">
             <div>
-                <!-- Badge Stato Live Dinamico -->
-                <div id="live-badge" class="mb-6 inline-flex items-center gap-2 px-3 py-1.5 border transition-colors rounded">
-                    <span id="live-dot" class="h-2 w-2 rounded-full"></span>
-                    <span id="live-text" class="font-mono text-[11px] uppercase tracking-widest"></span>
-                </div>
-                
                 <h1 class="text-5xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
                     <span class="block text-white">Sopravvivi</span>
                     <span class="block text-[#FF5500] neon-glow my-1">alla notte</span>
@@ -355,29 +349,6 @@
 
     <!-- Script Generali & Logica Login/Commenti -->
     <script>
-        // Imposta su true quando sei in live, false quando sei offline
-        const isLive = false; 
-
-        function updateLiveBadge() {
-            const badge = document.getElementById('live-badge');
-            const dot = document.getElementById('live-dot');
-            const text = document.getElementById('live-text');
-
-            if (!badge || !dot || !text) return;
-
-            if (isLive === true) {
-                badge.className = "mb-6 inline-flex items-center gap-2 px-3 py-1.5 border border-emerald-500/40 bg-emerald-500/10 rounded transition-colors";
-                dot.className = "h-2 w-2 rounded-full bg-[#00FF66] animate-pulse";
-                text.className = "font-mono text-[11px] uppercase tracking-widest text-[#00FF66]";
-                text.innerText = "Online su YouTube & Twitch";
-            } else {
-                badge.className = "mb-6 inline-flex items-center gap-2 px-3 py-1.5 border border-red-500/40 bg-red-500/10 rounded transition-colors";
-                dot.className = "h-2 w-2 rounded-full bg-[#FF2200]";
-                text.className = "font-mono text-[11px] uppercase tracking-widest text-[#FF2200]";
-                text.innerText = "Offline - Torno presto";
-            }
-        }
-
         setInterval(() => {
             const now = new Date();
             const clockEl = document.getElementById('clock');
@@ -387,7 +358,7 @@
         }, 1000);
 
         function changeCam(id, name, imgFile, evt) {
-            document.getElementById('cam-label').innerText = `CAM ${id} — ${name}`;
+            document.getElementById('cam-label').innerText = `CAM ${id} —${name}`;
             document.getElementById('cctv-img').src = imgFile;
 
             const buttons = document.querySelectorAll('.cam-btn');
@@ -463,48 +434,4 @@
                             <span class="text-[10px] bg-white/10 text-zinc-300 px-2 py-0.5 rounded uppercase">${escapeHtml(c.shift)}</span>
                             <span class="text-[9px] text-zinc-500">(${escapeHtml(c.platform || 'Web')})</span>
                         </div>
-                        <span class="text-[11px] text-zinc-500">${escapeHtml(c.date)}</span>
-                    </div>
-                    <p class="text-sm text-zinc-300 font-sans">${escapeHtml(c.text)}</p>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function handleCommentSubmit(event) {
-            event.preventDefault();
-            
-            if (!loggedUser) {
-                alert("Errore: Devi prima effettuare il login cliccando su uno dei pulsanti colorati (YouTube, Twitch o TikTok)!");
-                return;
-            }
-
-            const author = loggedUser;
-            const shift = document.getElementById('comment-shift').value;
-            const text = document.getElementById('comment-text').value;
-            const date = new Date().toLocaleDateString('it-IT');
-            const platform = loggedPlatform;
-            
-            const isOwner = (author.toLowerCase() === "misticko-968");
-
-            const newComment = { author, shift, text, date, platform, isOwner };
-            const comments = getStoredComments();
-            
-            comments.unshift(newComment);
-            localStorage.setItem('misticko_comments', JSON.stringify(comments));
-
-            document.getElementById('comment-text').value = '';
-            renderComments();
-        }
-
-        function escapeHtml(str) {
-            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            updateLiveBadge();
-            renderComments();
-        });
-    </script>
-</body>
-</html>
+                        <span class="text-[11px] text
