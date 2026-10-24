@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misticko-968 — FNaF Content Creator & Streamer</title>
-    <!-- Favicon del canale -->
-    <link rel="icon" type="image/png" href="logo.png">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,38 +41,6 @@
         .neon-border {
             box-shadow: 0 0 15px rgba(255, 85, 0, 0.2);
         }
-
-        /* Fiammella Personalizzata a tema FNaF (Arancione, Rosso e Giallo) */
-        .custom-flame-badge {
-            display: inline-block;
-            width: 15px;
-            height: 22px;
-            background: linear-gradient(to top, #ff2200, #ff5500, #ffcc00);
-            border-radius: 50% 50% 20% 20% / 60% 60% 40% 40%;
-            position: relative;
-            box-shadow: 0 0 10px rgba(255, 85, 0, 0.8), 0 0 18px rgba(255, 34, 0, 0.5);
-            transform: scale(1);
-            animation: flameFlicker 1.2s infinite alternate;
-            vertical-align: middle;
-            margin-left: 6px;
-        }
-
-        .custom-flame-badge::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            left: 3px;
-            width: 7px;
-            height: 12px;
-            background: radial-gradient(circle, #ffff00 0%, #ff5500 100%);
-            border-radius: 50%;
-            opacity: 0.9;
-        }
-
-        @keyframes flameFlicker {
-            0% { transform: scale(1) rotate(-3deg); box-shadow: 0 0 8px rgba(255, 85, 0, 0.7), 0 0 14px rgba(255, 34, 0, 0.4); }
-            100% { transform: scale(1.1) rotate(3deg); box-shadow: 0 0 14px rgba(255, 170, 0, 0.9), 0 0 22px rgba(255, 34, 0, 0.7); }
-        }
     </style>
 </head>
 <body class="bg-[#070709] text-white font-sans selection:bg-[#FF5500] selection:text-black">
@@ -96,8 +62,6 @@
             </a>
             <div class="hidden items-center gap-7 md:flex">
                 <a href="#socials" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Social Hub</a>
-                <a href="#orari" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Orari Live</a>
-                <a href="#commenti" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Commenti</a>
                 <a href="#chi-sono" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Chi Sono</a>
                 <a href="#contatti" class="font-mono text-xs uppercase tracking-widest text-zinc-400 hover:text-[#FF5500] transition-colors">Contatti</a>
             </div>
@@ -120,7 +84,7 @@
                 </h1>
 
                 <p class="mt-6 max-w-md text-sm leading-relaxed text-zinc-400 sm:text-base">
-                    Gameplay estremo di Five Nights at Freddy's. Ogni notte una nuova sfida, ogni video una notte da sopravvivere fino alle 6 del mattino.
+                    Gameplay estremo di Five Nights at Freddy&apos;s. Ogni notte una nuova sfida, ogni video una notte da sopravvivere fino alle 6 del mattino.
                 </p>
 
                 <div class="mt-8 flex flex-wrap gap-4">
@@ -172,7 +136,6 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-3">
-                <!-- YouTube -->
                 <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#FF2200] transition-colors flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -180,14 +143,13 @@
                             <span class="text-2xl font-bold">YouTube</span>
                         </div>
                         <h3 class="text-lg font-bold mb-2">@Misticko-968</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Live e video su fan game di FNAF e su altri videogiochi.</p>
+                        <p class="text-sm text-zinc-400 mb-6">Gameplay full horror, notti complete e sfide estreme su tutta la saga FNaF.</p>
                     </div>
                     <a href="https://www.youtube.com/@Misticko-968" target="_blank" class="w-full text-center bg-[#FF2200] text-white py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-red-700 transition-colors">
                         Iscriviti al canale
                     </a>
                 </div>
 
-                <!-- Twitch -->
                 <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#9146FF] transition-colors flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -195,14 +157,13 @@
                             <span class="text-2xl font-bold">Twitch</span>
                         </div>
                         <h3 class="text-lg font-bold mb-2">Misticko96</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Live full horror su fan game di FNAF e altro.</p>
+                        <p class="text-sm text-zinc-400 mb-6">Maratone notturne 50/20 mode, custom night challenge e reazioni live.</p>
                     </div>
                     <a href="https://www.twitch.tv/misticko96" target="_blank" class="w-full text-center bg-[#9146FF] text-white py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-purple-700 transition-colors">
                         Segui le live
                     </a>
                 </div>
 
-                <!-- TikTok -->
                 <div class="border border-white/15 bg-zinc-900/50 p-6 rounded-xl hover:border-[#00F2FE] transition-colors flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-4">
@@ -210,7 +171,7 @@
                             <span class="text-2xl font-bold">TikTok</span>
                         </div>
                         <h3 class="text-lg font-bold mb-2">@misticko96</h3>
-                        <p class="text-sm text-zinc-400 mb-6">Clip di live e video.</p>
+                        <p class="text-sm text-zinc-400 mb-6">Jumpscare clip, easter egg rapidi, meme e teorie in 60 secondi.</p>
                     </div>
                     <a href="https://www.tiktok.com/@misticko96" target="_blank" class="w-full text-center bg-[#00F2FE] text-black py-2.5 font-mono text-xs uppercase tracking-wider font-bold rounded hover:bg-cyan-400 transition-colors">
                         Guarda i clip
@@ -220,29 +181,45 @@
         </div>
     </section>
 
-    <!-- Sezione: Orari Live -->
-    <section id="orari" class="py-24 border-t border-white/10 bg-black/70">
-        <div class="mx-auto max-w-6xl px-5">
-            <div class="mb-12 text-center">
-                <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// PROGRAMMA TRASMISSIONI</span>
-                <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl">Orari delle Live</h2>
-                <p class="text-sm text-zinc-400 mt-2 font-mono">Preparati alla sopravvivenza nei seguenti giorni:</p>
-            </div>
+    <!-- Chi Sono -->
+    <section id="chi-sono" class="py-24 border-t border-white/10">
+        <div class="mx-auto max-w-4xl px-5 text-center">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-2">// ABOUT</span>
+            <h2 class="text-3xl font-black uppercase tracking-tight sm:text-4xl mb-6">Chi è Misticko-968</h2>
+            <p class="text-zinc-400 text-base leading-relaxed max-w-2xl mx-auto mb-10">
+                Creator appassionato di survival horror e in particolare dell'universo di Five Nights at Freddy&apos;s. Ogni trasmissione è un test di resistenza per scoprire i segreti più oscuri nascosti dietro le telecamere di sicurezza.
+            </p>
+        </div>
+    </section>
 
-            <div class="grid gap-4 md:grid-cols-4 max-w-4xl mx-auto">
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 01</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Martedì</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
-                </div>
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 02</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Giovedì</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
-                </div>
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center hover:border-[#FF5500] transition-all">
-                    <span class="font-mono text-xs uppercase tracking-widest text-[#FF5500] block mb-1">Turno 03</span>
-                    <h3 class="text-xl font-bold uppercase mb-2">Sabato</h3>
-                    <div class="inline-block bg-[#FF5500]/10 border border-[#FF5500]/30 px-3 py-1 rounded font-mono text-sm text-[#FF5500]">21:00</div>
-                </div>
-                <div class="border border-[#FF5500]/40 bg-zinc-900/40 p-6 rounded-xl text-center
+    <!-- Footer -->
+    <footer id="contatti" class="border-t border-white/10 bg-black py-12 text-center text-xs text-zinc-500 font-mono">
+        <div class="mx-auto max-w-6xl px-5">
+            <p class="mb-4 uppercase tracking-widest text-zinc-400">Misticko-968 &copy; 2026 — Tutti i diritti riservati</p>
+            <p>Contatti &amp; Sponsorizzazioni: <a href="mailto:misticko968181208@gmail.com" class="text-[#FF5500] hover:underline">misticko968181208@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Script interattività -->
+    <script>
+        setInterval(() => {
+            const now = new Date();
+            const clockEl = document.getElementById('clock');
+            if (clockEl) {
+                clockEl.innerText = now.toLocaleTimeString('it-IT');
+            }
+        }, 1000);
+
+        function changeCam(id, name, imgFile, evt) {
+            document.getElementById('cam-label').innerText = `CAM ${id} — ${name}`;
+            document.getElementById('cctv-img').src = imgFile;
+
+            const buttons = document.querySelectorAll('.cam-btn');
+            buttons.forEach(btn => {
+                btn.className = "cam-btn border border-white/15 text-zinc-500 hover:border-[#FF5500]/50 hover:text-zinc-300 px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
+            });
+            evt.currentTarget.className = "cam-btn border border-[#FF5500] bg-[#FF5500]/15 text-[#FF5500] px-2 py-2.5 text-[10px] uppercase tracking-widest transition-all";
+        }
+    </script>
+</body>
+</html>
